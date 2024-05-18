@@ -1,0 +1,560 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  html {
+    font-size: 7px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  html {
+    font-size: 6px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 5.5px;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  img {
+    height: auto;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  img {
+    height: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  img {
+    height: auto;
+  }
+}
+body {
+  font-family: "MS PMincho", sans-serif;
+  font-size: 1.6rem;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ＝＝＝＝ヘッダー＝＝＝＝*/
+header {
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+header h1 {
+  padding-left: 20px;
+  margin-left: 193px;
+  font-size: 5.5rem;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  header h1 {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header h1 {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  header h1 {
+    margin-left: 0;
+  }
+}
+header a.menuButton {
+  display: block;
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: 0.3s;
+  z-index: 3;
+}
+header a.menuButton div {
+  width: 60%;
+  height: 2px;
+  background-color: #000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header a.menuButton div {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 480px) {
+  header a.menuButton div {
+    width: 30%;
+  }
+}
+header a.menuButton div:nth-of-type(1) {
+  transform: translate(-50%, -50px);
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header a.menuButton div:nth-of-type(1) {
+    transform: translate(-50%, -25px);
+  }
+}
+@media screen and (max-width: 480px) {
+  header a.menuButton div:nth-of-type(1) {
+    transform: translate(-50%, -20px);
+  }
+}
+header a.menuButton div:nth-of-type(3) {
+  transform: translate(-50%, 50px);
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header a.menuButton div:nth-of-type(3) {
+    transform: translate(-50%, 25px);
+  }
+}
+@media screen and (max-width: 480px) {
+  header a.menuButton div:nth-of-type(3) {
+    transform: translate(-50%, 20px);
+  }
+}
+header a.menuButton.active div:nth-of-type(1) {
+  transform: rotate(45deg) translate(-50%, 0px);
+  width: 70%;
+  transform-origin: 0 50%;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header a.menuButton.active div:nth-of-type(1) {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 480px) {
+  header a.menuButton.active div:nth-of-type(1) {
+    width: 30%;
+  }
+}
+header a.menuButton.active div:nth-of-type(2) {
+  opacity: 0;
+}
+header a.menuButton.active div:nth-of-type(3) {
+  transform: rotate(-45deg) translate(-50%, 0px);
+  width: 70%;
+  transform-origin: 0 50%;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  header a.menuButton.active div:nth-of-type(3) {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 480px) {
+  header a.menuButton.active div:nth-of-type(3) {
+    width: 30%;
+  }
+}
+
+nav.headerNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  font-size: 3rem;
+  background-color: #FFFFFF;
+  max-height: 100vh;
+  padding: 150px 0 100px;
+  transform: translateX(100%);
+  transition: 0.3s;
+  overflow: auto;
+}
+nav.headerNav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+nav.headerNav ul li {
+  padding-top: 12px;
+  margin: 0 20px;
+}
+nav.headerNav ul li a {
+  color: #000000;
+  transition: color 0.8s;
+}
+nav.headerNav ul li a:hover {
+  -webkit-text-decoration: underline double;
+          text-decoration: underline double;
+  color: gray;
+}
+nav.headerNav.active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+div.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+div.mask.active {
+  opacity: 0.7;
+  visibility: visible;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+}
+
+/*＝＝＝＝＝＝ 共通　＝＝＝＝＝＝*/
+h2 {
+  text-align: center;
+  font-size: 5.5rem;
+  margin: 86px 0 77px;
+}
+
+.innerWrap {
+  width: 1664px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  .innerWrap {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .innerWrap {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .innerWrap {
+    width: 100%;
+  }
+}
+
+/* ＝＝＝＝＝＝スライド＝＝＝＝＝＝ */
+main #picAria {
+  width: 100%;
+  margin: 0 auto;
+}
+main #picAria h2 {
+  margin: 133px 0 123px;
+  padding-bottom: 7px;
+}
+main #picAria #slide {
+  position: relative;
+  overflow: hidden;
+  height: 512px;
+}
+main #picAria #slide ul {
+  position: absolute;
+  width: 3010px;
+}
+main #picAria #slide ul li {
+  float: left;
+  width: auto;
+}
+main #picAria #slide ul > * + * {
+  margin-left: 50px;
+}
+
+/*＝＝＝＝＝＝ ふわっと＝＝＝＝＝＝ */
+article h2 {
+  margin: 230px 0 84px;
+}
+article section .shoes {
+  font-size: 2.5rem;
+}
+article section .shoes .flexBox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 83px;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  article section .shoes .flexBox {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  article section .shoes .flexBox {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  article section .shoes .flexBox {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
+article section .shoes .flexBox li {
+  list-style-type: none;
+  border: 1px solid #707070;
+  width: 500px;
+  height: 444px;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  article section .shoes .flexBox li {
+    margin-bottom: 86px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  article section .shoes .flexBox li {
+    margin-bottom: 86px;
+  }
+}
+@media screen and (max-width: 480px) {
+  article section .shoes .flexBox li {
+    margin-bottom: 86px;
+    max-width: 100%;
+    height: 380px;
+  }
+}
+article section .shoes .flexBox li img {
+  margin-bottom: 21px;
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #707070;
+}
+article section .shoes .flexBox li h3 {
+  margin: 0 0 36px 22px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  article section .shoes .flexBox li h3 {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  article section .shoes .flexBox li h3 {
+    margin-left: 0;
+  }
+}
+article section .shoes .flexBox li .textBox {
+  margin-left: 67px;
+  line-height: 1.5;
+  letter-spacing: 0.13em;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  article section .shoes .flexBox li .textBox {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  article section .shoes .flexBox li .textBox {
+    margin-left: 0;
+    letter-spacing: 0.12em;
+    margin-left: 30px;
+  }
+}
+article section .shoes .flexBox li .text {
+  text-align: right;
+  margin-right: 65px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  article section .shoes .flexBox li .text {
+    margin-right: 110px;
+  }
+}
+@media screen and (max-width: 480px) {
+  article section .shoes .flexBox li .text {
+    margin-right: 110px;
+  }
+}
+
+/* ＝＝＝＝＝＝仕組み＝＝＝＝＝＝ */
+.fadein {
+  opacity: 0;
+  transform: translate(0, 80px);
+  transition: all 800ms;
+}
+.fadein.scrollin {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ＝＝＝＝＝＝コンタクト＝＝＝＝＝＝ */
+.contAll {
+  margin-top: 265px;
+  padding-top: 86px;
+  background-color: #000000;
+  width: 100%;
+}
+.contAll h2 {
+  color: #FFFFFF;
+}
+.contAll form {
+  width: 1511px;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  .contAll form {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .contAll form {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .contAll form {
+    width: 100%;
+  }
+}
+.contAll form .formFlex {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  .contAll form .formFlex {
+    padding-left: 130px;
+    width: 100%;
+    white-space: wrap;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .contAll form .formFlex {
+    padding-left: 100px;
+    width: 100%;
+    white-space: wrap;
+  }
+}
+@media screen and (max-width: 480px) {
+  .contAll form .formFlex {
+    padding-left: 20px;
+    width: 100%;
+    white-space: wrap;
+  }
+}
+.contAll form .formFlex p {
+  margin-bottom: 12px;
+  font-size: 3rem;
+  color: #FFFFFF;
+}
+.contAll form .formFlex > p {
+  width: 59.5%;
+  line-height: 1.5;
+  letter-spacing: 0.16em;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .contAll form .formFlex > p {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .contAll form .formFlex > p {
+    width: 100%;
+    letter-spacing: 0.12em;
+  }
+}
+.contAll form .formFlex div p input {
+  background-color: #FFFFFF;
+  width: 611px;
+  height: 62px;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  .contAll form .formFlex div p input {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .contAll form .formFlex div p input {
+    margin-bottom: 50px;
+    width: 130%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .contAll form .formFlex div p input {
+    margin-bottom: 50px;
+    width: 120%;
+  }
+}
+.contAll form .formFlex div p textarea {
+  background-color: #FFFFFF;
+  width: 611px;
+  height: 89px;
+}
+@media screen and (min-width: 1025px) and (max-width: 1480px) {
+  .contAll form .formFlex div p textarea {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .contAll form .formFlex div p textarea {
+    margin-bottom: 50px;
+    width: 130%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .contAll form .formFlex div p textarea {
+    margin-bottom: 50px;
+    width: 130%;
+  }
+}
+.contAll form .formFlex button.submitBtn {
+  display: inline-block;
+  text-align: center;
+  font-size: 4rem;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  padding: 31px 91px 25px 104px;
+  margin: 35px 301px 168px auto;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .contAll form .formFlex button.submitBtn {
+    padding: 15px 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .contAll form .formFlex button.submitBtn {
+    padding: 10px 40px;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  z-index: 3;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 28px;
+  height: 68px;
+  text-align: center;
+}
+footer p {
+  font-size: 4rem;
+  color: #FFFFFF;
+}/*# sourceMappingURL=style.css.map */
